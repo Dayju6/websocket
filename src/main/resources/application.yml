@@ -1,0 +1,27 @@
+spring:
+
+#配置日志文件
+logging:
+  #日志路径(设置后系统会将此路径与LOG_PATH路径绑定，logback-xxx.xml直接使用LOG_PATH)
+  path: E:\\temp\\websocket\\
+
+  #(生产环境：logback-prod.xml 测试开发环境：logback-dev.xml)
+  #${LOG_PATH}logback-prod.xml
+  #(classpath路径下不能有logback-spring.xml, logback-test.xml等，
+  #否则会先加载这些日志配置文件，然后再加载config设置的日志配置文件)
+  #可设置logback-xxx.xml配置文件的绝对路径
+  config: classpath:log4j2.xml
+
+app:
+  outputDebug: true
+  listenPort: 9999
+
+
+kafka:
+  serverInfo: "192.168.0.77:9092"
+  groupId: "bito"
+  autoCommit: "true"
+  autoCommitIntervalMs: 5000
+  topic: "gnss-tracks"
+
+
